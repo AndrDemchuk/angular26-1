@@ -7,11 +7,24 @@ import { Appointment } from '../models/appointment'; `
   styleUrls: ['./appointment-list.component.css']
 })
 export class AppointmentListComponent {
-  appointment: Appointment = {
-    id: 1,
-    title: 'Take dog for a walk',
-    date: new Date('2023-07-30')
-  }
+  newAppointmentTitle: string = "";
+  newAppointmentDate: Date = new Date();
 
+  appointments: Appointment[] = [
+    {
+      id: 1,
+      title: 'Take dog for a walk',
+      date: new Date('2023-07-30')
+    },
+    {
+      id: 2,
+      title: 'Buy groceries',
+      date: new Date('2023-07-31')
+    }
+  ];
+
+  addAppointment() {
+    alert(this.newAppointmentTitle + ' ' + this.newAppointmentDate);
+  }
 
 }
