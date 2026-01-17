@@ -11,20 +11,21 @@ export class AppointmentListComponent {
   newAppointmentDate: Date = new Date();
 
   appointments: Appointment[] = [
-    {
-      id: 1,
-      title: 'Take dog for a walk',
-      date: new Date('2023-07-30')
-    },
-    {
-      id: 2,
-      title: 'Buy groceries',
-      date: new Date('2023-07-31')
-    }
   ];
 
   addAppointment() {
-    alert(this.newAppointmentTitle + ' ' + this.newAppointmentDate);
+    if (this.newAppointmentTitle.trim().length && this.newAppointmentDate) {
+      let newAppoinntment: Appointment = {
+        id: Date.now(),
+        title: this.newAppointmentTitle,
+        date: this.newAppointmentDate
+      }
+      this.appointments.push(newAppoinntment);
+
+      this.newAppointmentTitle = ""
+      this.newAppointmentDate = new Date();
+      alert(this.appointments.length)
+    }
   }
 
 }
